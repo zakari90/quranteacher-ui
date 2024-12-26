@@ -3,11 +3,14 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import UserTable from '../component/userTable';
 
+
+const backendURL = process.env.PUBLIC_BACKEND_URL || 'http://localhost:5000/';
+
 function UsersPage() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/users',{
+    fetch(`${backendURL}`,{
       method: 'GET',
     })
       .then((res) => res.json())

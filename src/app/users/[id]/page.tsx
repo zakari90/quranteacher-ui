@@ -10,17 +10,19 @@ export interface User {
 
 const UserDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
 
+  const backendURL = process.env.PUBLIC_BACKEND_URL || 'http://localhost:5000/';
+
   const { id } = use(params);
   const [user, setUser] = useState<User | null>(null);
+  console.log(id);
   
   useEffect(() => {
     if (id) {
-      fetch(`http://localhost:5000/api/users/${id}`, {
+      fetch(`${backendURL}${id}`, {
         method: 'GET',
-        headers: {"Content-Type": "application/json"}
       })
         .then((response) => response.json())
-        .then((data) => setUser(data))  // Handle the user data
+        .then((data) => setUser(data)) 
         .catch((error) => console.error('Error:', error));
     }
   }, [id]);

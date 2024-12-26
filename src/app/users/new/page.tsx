@@ -2,6 +2,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+
+const backendURL = process.env.PUBLIC_BACKEND_URL || 'http://localhost:5000/';
+// 'https://quranteacher-backend.onrender.com/'
 const NewUserPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -17,7 +20,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     return;
   }
   try {
-    const response = await fetch('http://localhost:5000/api/users', {
+    const response = await fetch(`${backendURL}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email }),
