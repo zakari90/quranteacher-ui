@@ -1,7 +1,5 @@
-import React from 'react'
-import { Home, Users, BookOpen, FileText, Calendar, MessageCircle, Bell, Settings, LogOut, PencilRuler, GraduationCap, Notebook, LibraryBig, Clipboard, NotepadText, UserRoundCheck, UserRoundCog } from "lucide-react";
+import { Bell, BookOpen, Calendar, Clipboard, FileText, GraduationCap, Home, LibraryBig, LogOut, MessageCircle, Notebook, NotepadText, PencilRuler, Settings, UserRoundCheck, UserRoundCog, Users } from "lucide-react";
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 
 const menuItems = [
   {

@@ -42,10 +42,9 @@ const DashboardLayout= ({ children }: Readonly<{
             </header>
             <section className='flex'>
                     <Menu/>    
-            <main className=' w-full bg-primary-foreground'>
-                
-
-                {children}</main>
+            <main className=' w-full'>
+                {children}
+                </main>
             </section>
             <footer>
                 <p>© 2023 My Project</p>

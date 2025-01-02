@@ -1,9 +1,11 @@
-import React from 'react'
+import BigCalendar from "@/app/component/calendar";
 
-function TeacherHome() {
+
+export default function StudentsHome() {
   return (
-    <div>TeacherHome</div>
+    <div>
+
+      <BigCalendar/>
+    </div>
   )
 }
-
-export default TeacherHome

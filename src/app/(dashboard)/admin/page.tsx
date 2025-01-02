@@ -1,6 +1,7 @@
 import CalendarPage from '@/app/component/calendar'
 import { BarChartComponent, ChartComponent, LineChartComponent } from '@/app/component/chart'
 import { MoreHorizontal } from 'lucide-react'
+import React from 'react'
 
 function TeacherHome() {
   return (
@@ -88,19 +89,17 @@ function TeacherHome() {
     <div>
       <h1 className='text-2xl font-bold'>chart</h1>
     <div className='flex'>
+    
 
       <ChartComponent/>
 
       <BarChartComponent/>
     </div>
     </div>
-    <LineChartComponent/>
-    <div>
-
-      <CalendarPage/>
-      <div>
+    {/* <LineChartComponent/> */}
+      {/* <CalendarPage/> */}
       {/* events */}
-      <section>
+      {/* <section>
 
       <div className="max-w-5xl mx-auto mt-8">
         <h1>events</h1>
@@ -113,9 +112,7 @@ function TeacherHome() {
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
   </div>
 </div>
-      </section>
-      </div>
-    </div>
+      </section> */}
     </section>
 
   )
@@ -146,3 +143,5 @@ const EventList = () => {
       </div>
   );
 };
+
+
