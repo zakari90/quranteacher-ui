@@ -8,9 +8,7 @@ const backendURL = process.env.PUBLIC_BACKEND_URL || 'http://localhost:5000/';
 const NewUserPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-
   const router = useRouter();
-
   const [error, setError] = useState<string | null>(null);
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

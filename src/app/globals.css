@@ -2,20 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
+    --foreground: 220, 60%, 20%; /* #3A3960 (dark indigo) */
+    --card: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
+    --card-foreground: 220, 60%, 20%; /* #3A3960 (dark indigo) */
+    --popover: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
+    --popover-foreground: 220, 60%, 20%; /* #3A3960 (dark indigo) */
+    --primary: 180, 20%, 38%; /* #5E686D (muted teal) */
+    --primary-foreground: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
+    --secondary: 120, 20%, 70%; /* #A9BFA8 (muted green) */
+    --secondary-foreground: 220, 60%, 20%; /* #3A3960 (dark indigo) */
+    --muted: 120, 20%, 70%; /* #A9BFA8 (muted green) */
+    --muted-foreground: 180, 20%, 38%; /* #5E686D (muted teal) */
+    --accent: 120, 20%, 70%; /* #A9BFA8 (muted green) */
+    --accent-foreground: 220, 60%, 20%; /* #3A3960 (dark indigo) */
+    --destructive: 240, 40%, 38%; /* #3A3960 (dark indigo) */
+    --destructive-foreground: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
+    --border: 120, 20%, 70%; /* #A9BFA8 (muted green) */
+    --input: 120, 20%, 70%; /* #A9BFA8 (muted green) */
+    --ring: 180, 20%, 38%; /* #5E686D (muted teal) */
+    --chart-1: 12, 76%, 61%; /* Original chart color 1 */
+    --chart-2: 173, 58%, 39%; /* Original chart color 2 */
+    --chart-3: 197, 37%, 24%; /* Original chart color 3 */
+    --chart-4: 43, 74%, 66%; /* Original chart color 4 */
+    --chart-5: 27, 87%, 67%; /* Original chart color 5 */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220, 60%, 20%; /* #3A3960 (dark indigo) */
+    --foreground: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
+    --card: 220, 60%, 20%; /* #3A3960 (dark indigo) */
+    --card-foreground: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
+    --popover: 220, 60%, 20%; /* #3A3960 (dark indigo) */
+    --popover-foreground: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
+    --primary: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
+    --primary-foreground: 220, 60%, 20%; /* #3A3960 (dark indigo) */
+    --secondary: 180, 20%, 38%; /* #5E686D (muted teal) */
+    --secondary-foreground: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
+    --muted: 180, 20%, 38%; /* #5E686D (muted teal) */
+    --muted-foreground: 120, 20%, 70%; /* #A9BFA8 (muted green) */
+    --accent: 180, 20%, 38%; /* #5E686D (muted teal) */
+    --accent-foreground: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
+    --destructive: 240, 40%, 38%; /* #3A3960 (dark indigo) */
+    --destructive-foreground: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
+    --border: 180, 20%, 38%; /* #5E686D (muted teal) */
+    --input: 180, 20%, 38%; /* #5E686D (muted teal) */
+    --ring: 120, 20%, 70%; /* #A9BFA8 (muted green) */
+    --chart-1: 220, 70%, 50%; /* Original chart color 1 */
+    --chart-2: 160, 60%, 45%; /* Original chart color 2 */
+    --chart-3: 30, 80%, 55%; /* Original chart color 3 */
+    --chart-4: 280, 65%, 60%; /* Original chart color 4 */
+    --chart-5: 340, 75%, 55%; /* Original chart color 5 */
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+
