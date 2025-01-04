@@ -6,9 +6,9 @@ import React from 'react'
 function TeacherHome() {
   return (
     <section>
-    <div>
+    <div className='w-full'>
       {/* card sections */}
-      <div className='grid grid-cols-2 lg:grid-cols-4 gap-1'>
+      <div className='ml-auto mr-auto  grid grid-cols-2 lg:grid-cols-4 gap-1'>
         
     <div className='bg-blue-400 w-[200px] h-[100px] flex rounded-xl p-2'>
       <div className='w-3/4' >

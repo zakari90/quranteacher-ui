@@ -1,10 +1,7 @@
-import { Bell, BookOpen, Calendar, Clipboard, FileText, GraduationCap, Home, LibraryBig, LogOut, MessageCircle, Notebook, NotepadText, PencilRuler, Settings, UserRoundCheck, UserRoundCog, Users } from "lucide-react";
+import { Calendar, GraduationCap, Home, MessageCircle, PencilRuler, Users, UserSquare } from "lucide-react";
 import Link from 'next/link';
 
 const menuItems = [
-  {
-    title: "MENU",
-    items: [
       {
         icon: <Home />,
         label: "Home",
@@ -30,48 +27,6 @@ const menuItems = [
         visible: ["admin", "teacher"],
       },
       {
-        icon: <BookOpen />,
-        label: "Subjects",
-        href: "/list/subjects",
-        visible: ["admin"],
-      },
-      {
-        icon: <LibraryBig />,
-        label: "Classes",
-        href: "/list/classes",
-        visible: ["admin", "teacher"],
-      },
-      {
-        icon: <Notebook />,
-        label: "Lessons",
-        href: "/list/lessons",
-        visible: ["admin", "teacher"],
-      },
-      {
-        icon: <Clipboard />,
-        label: "Exams",
-        href: "/list/exams",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
-        icon: <FileText />,
-        label: "Assignments",
-        href: "/list/assignments",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
-        icon: <NotepadText />,
-        label: "Results",
-        href: "/list/results",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
-        icon: <UserRoundCheck />,
-        label: "Attendance",
-        href: "/list/attendance",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
         icon: <Calendar />,
         label: "Events",
         href: "/list/events",
@@ -83,57 +38,42 @@ const menuItems = [
         href: "/list/messages",
         visible: ["admin", "teacher", "student", "parent"],
       },
-      {
-        icon: <Bell />,
-        label: "Announcements",
-        href: "/list/announcements",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-    ],
-  },
-  {
-    title: "OTHER",
-    items: [
-      {
-        icon: <UserRoundCog />,
-        label: "Profile",
-        href: "/profile",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
-        icon: <Settings />,
-        label: "Settings",
-        href: "/settings",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
-        icon: <LogOut />,
-        label: "Logout",
-        href: "/logout",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-    ],
-  },
+    
+
 ];
 
 
-function Menu() {
+function Menu( {role}: {role: string}) {
   return (
-    <div className=' w-20  md:w-[200px] p-2'>{menuItems.map((section) => (
-        
-        <div key={section.title}>
-          <h3 className='text-primary mt-2 mb-2'>{section.title}</h3>
-          <ul>
-            {section.items.map((item) => (
-              <Link className='m-4 gap-4 flex items-center ' 
-              href={item.href} key={item.href}>
-          
-                  <div className='size-5'>{item.icon}</div>
-                  <div className='hidden md:block'>{item.label}</div>              </Link>
-            ))}
+
+    <div className=' h-screen sticky flex flex-col justify-between  w-20  md:w-[200px] p-2'>
+
+          <h2 className='w-1/5 text-lg font-bold text-primary'>HAFD</h2>  
+          <ul className="w-3/5 flex flex-col justify-around">
+            {
+              menuItems.map((item) => {
+                if (item.visible.includes(role)) {
+                  return (
+                    <li key={item.label} className='mb-2 mt-2'>
+                      <Link className='flex items-center gap-2' href={item.href}>
+                       
+                      <span>{item.icon}</span>
+                      <span className="hidden md:block">{item.label}</span>
+                        
+                      </Link>
+                    </li>
+                  );
+                }
+              })  
+            }
           </ul>
-        </div>
-      ))}
+          <div className='w-1/5 flex justify-center items-center mt-2'>
+            <Link href='/profile'>
+              <button className='bg-primary text-white p-2 rounded-xl'>
+                <UserSquare />
+              </button>
+            </Link>
+          </div>
       </div>
   )
 }

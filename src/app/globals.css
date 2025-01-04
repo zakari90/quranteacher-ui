@@ -8,32 +8,46 @@ body {
 
 @layer base {
   :root {
-    --background: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
-    --foreground: 220, 60%, 20%; /* #3A3960 (dark indigo) */
-    --card: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
-    --card-foreground: 220, 60%, 20%; /* #3A3960 (dark indigo) */
-    --popover: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
-    --popover-foreground: 220, 60%, 20%; /* #3A3960 (dark indigo) */
-    --primary: 180, 20%, 38%; /* #5E686D (muted teal) */
-    --primary-foreground: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
-    --secondary: 120, 20%, 70%; /* #A9BFA8 (muted green) */
-    --secondary-foreground: 220, 60%, 20%; /* #3A3960 (dark indigo) */
-    --muted: 120, 20%, 70%; /* #A9BFA8 (muted green) */
-    --muted-foreground: 180, 20%, 38%; /* #5E686D (muted teal) */
-    --accent: 120, 20%, 70%; /* #A9BFA8 (muted green) */
-    --accent-foreground: 220, 60%, 20%; /* #3A3960 (dark indigo) */
-    --destructive: 240, 40%, 38%; /* #3A3960 (dark indigo) */
-    --destructive-foreground: 60, 100%, 95%; /* #FAFFC5 (light yellow) */
-    --border: 120, 20%, 70%; /* #A9BFA8 (muted green) */
-    --input: 120, 20%, 70%; /* #A9BFA8 (muted green) */
-    --ring: 180, 20%, 38%; /* #5E686D (muted teal) */
-    --chart-1: 12, 76%, 61%; /* Original chart color 1 */
-    --chart-2: 173, 58%, 39%; /* Original chart color 2 */
-    --chart-3: 197, 37%, 24%; /* Original chart color 3 */
-    --chart-4: 43, 74%, 66%; /* Original chart color 4 */
-    --chart-5: 27, 87%, 67%; /* Original chart color 5 */
+    /* Backgrounds and Foregrounds */
+    --background: 210, 100%, 98%; /* Very Light Blue - #F0F7FF */
+    --foreground: 220, 60%, 40%; /* Medium Gray - #8A8A8A */
+    --card: 0, 0%, 100%; /* White - #fefefe */
+    --card-foreground: 220, 60%, 20%; /* Dark Gray Text */
+    --popover: 60, 100%, 90%; /* Light Yellow - #FAFFC5 */
+    --popover-foreground: 220, 60%, 20%; /* Dark Indigo - #3A3960 */
+
+    /* Main Theme Colors */
+    --primary: 212 100% 50%; /* Dark Cyan - #0A4F53 */
+    --primary-foreground: 60, 100%, 95%; /* Light Yellow - #FFF7C1 */
+    --secondary: 120, 50%, 40%; /* Medium Green - #4CAF50 */
+    --secondary-foreground: 220, 60%, 20%; /* Dark Gray Text */
+    
+    /* Muted Colors */
+    --muted: 120, 20%, 60%; /* Muted Green - #A3D9A5 */
+    --muted-foreground: 180, 20%, 40%; /* Muted Cyan - #5F8D8E */
+
+    /* Accent and Destructive Colors */
+    --accent: 40, 80%, 60%; /* Accent Yellow - #FFCD5C */
+    --accent-foreground: 220, 60%, 20%; /* Dark Accent Text */
+    --destructive: 0, 80%, 60%; /* Bright Red - #FF4C4C */
+    --destructive-foreground: 60, 100%, 95%; /* Light Yellow for Destructive Text */
+    
+    /* Borders, Inputs, Rings */
+    --border: 120, 20%, 60%; /* Muted Green Border */
+    --input: 0, 0%, 98%; /* Light Gray for Inputs */
+    --ring: 180, 20%, 40%; /* Cyan Ring Color */
+
+    /* Chart Colors */
+    --chart-1: 12, 76%, 61%; /* Chart Color 1 (Orange) */
+    --chart-2: 173, 58%, 39%; /* Chart Color 2 (Green) */
+    --chart-3: 197, 37%, 24%; /* Chart Color 3 (Dark Blue) */
+    --chart-4: 43, 74%, 66%; /* Chart Color 4 (Yellow) */
+    --chart-5: 27, 87%, 67%; /* Chart Color 5 (Red) */
+
+    /* Radius (for border radius) */
     --radius: 0.5rem;
-  }
+}
+
 
   .dark {
     --background: 220, 60%, 20%; /* #3A3960 (dark indigo) */
@@ -64,3 +78,12 @@ body {
 }
 
 
+@keyframes marqueeAr {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.marqueeAr {
+  
+  animation: marqueeAr 20s linear infinite;
+}
