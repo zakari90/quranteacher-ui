@@ -6,8 +6,8 @@ const DashboardLayout= ({ children }: Readonly<{
   }>) => {
     return (
         <div>
-            <div className="w-full h-6 bg-background text-secondary-foreground text-center news-bar-container">
-                <div className={ 'bg-black text-white text-center pb-0.5 rounded-e-full rounded-ss-full font-light overflow-hidden marqueeAr'}>
+            <div className="mb-2 w-full h-6 bg-background text-secondary-foreground text-center news-bar-container">
+                <div className={ 'bg-primary text-white text-center pb-0.5 rounded-e-full rounded-ss-full font-light overflow-hidden'}>
                 سجل واحصل على خصم
                 </div>
             </div>

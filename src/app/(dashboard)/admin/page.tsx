@@ -1,147 +1,82 @@
 import CalendarPage from '@/app/component/calendar'
-import { BarChartComponent, ChartComponent, LineChartComponent } from '@/app/component/chart'
-import { MoreHorizontal } from 'lucide-react'
-import React from 'react'
+import { ChartComponent, CustomStudentCard, EventsCard, MessagesCard, TitleElement, TopStudentCard } from '@/app/component/chart'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 function TeacherHome() {
   return (
-    <section>
-    <div className='w-full'>
-      {/* card sections */}
-      <div className='ml-auto mr-auto  grid grid-cols-2 lg:grid-cols-4 gap-1'>
-        
-    <div className='bg-blue-400 w-[200px] h-[100px] flex rounded-xl p-2'>
-      <div className='w-3/4' >
-          <div>
-              <span className='bg-primary-foreground text-xs p-1 border-2 border-solid border-black rounded-xl'>
-              2025/25
-          </span>
-          <p className='font-bold text-lg mt-2'>
-              1234
-          </p>
-          <p className='text-primary'>Students</p>
-          </div>
-
-      </div>
-      <div className='hover:cursor-pointer h-1'>
-      <MoreHorizontal className='text-white'/>
-    </div>
-
-  </div>
-
-  <div className='bg-blue-400 w-[200px] h-[100px] flex rounded-xl p-2'>
-      <div className='w-3/4' >
-          <div>
-              <span className='bg-primary-foreground text-xs p-1 border-2 border-solid border-black rounded-xl'>
-              2025/25
-          </span>
-          <p className='font-bold text-lg mt-2'>
-              1234
-          </p>
-          <p className='text-primary'>Students</p>
-          </div>
-
-      </div>
-      <div className='hover:cursor-pointer h-1'>
-      <MoreHorizontal className='text-white'/>
-    </div>
-
-  </div>
-  <div className='bg-blue-400 w-[200px] h-[100px] flex rounded-xl p-2'>
-      <div className='w-3/4' >
-          <div>
-              <span className='bg-primary-foreground text-xs p-1 border-2 border-solid border-black rounded-xl'>
-              2025/25
-          </span>
-          <p className='font-bold text-lg mt-2'>
-              1234
-          </p>
-          <p className='text-primary'>Students</p>
-          </div>
-
-      </div>
-      <div className='hover:cursor-pointer h-1'>
-      <MoreHorizontal className='text-white'/>
-    </div>
-
-  </div>
-  <div className='bg-blue-400 w-[200px] h-[100px] flex rounded-xl p-2'>
-      <div className='w-3/4' >
-          <div>
-              <span className='bg-primary-foreground text-xs p-1 border-2 border-solid border-black rounded-xl'>
-              2025/25
-          </span>
-          <p className='font-bold text-lg mt-2'>
-              1234
-          </p>
-          <p className='text-primary'>Students</p>
-          </div>
-
-      </div>
-      <div className='hover:cursor-pointer h-1'>
-      <MoreHorizontal className='text-white'/>
-    </div>
-
-  </div>
+    <div className='flex flex-wrap'>
+    <section className='max-w-4xl'>
+    <div className='w-full mb-4'>
+      <div className=' flex  flex-wrap justify-around'>
+        <CustomStudentCard currentDate="2022-12-31" studentCount={150} />
+        <CustomStudentCard currentDate="2022-12-31" studentCount={2} />
       </div>
 
     </div>
-    <div>
-      <h1 className='text-2xl font-bold'>chart</h1>
-    <div className='flex'>
+    <div className='flex flex-wrap justify-around gap-3'>
     
 
       <ChartComponent/>
 
-      <BarChartComponent/>
+      <Card className='w-72 h-96 mt-4 overflow-y-auto'>
+      <CardHeader >
+        <CardTitle className='ml-auto mr-auto ' >Top performming Students</CardTitle>
+      </CardHeader>
+      <CardContent className='ml-auto mr-auto flex flex-col gap-3  '>
+        <TopStudentCard name="zakaria zinedine" hizb={55} rank={1} gender='male'  />
+        <TopStudentCard name="hafida zinedine" hizb={55} rank={2} gender='female'  />
+        <TopStudentCard name="zakaria zinedine" hizb={55} rank={1} gender='male'  />
+        <TopStudentCard name="zakaria zinedine" hizb={55} rank={1} gender='male'  />
+      </CardContent>
+    </Card>
     </div>
-    </div>
-    {/* <LineChartComponent/> */}
-      {/* <CalendarPage/> */}
-      {/* events */}
-      {/* <section>
+    <div className='mt-3'>
+      <div className='flex justify-between m-2'>
 
-      <div className="max-w-5xl mx-auto mt-8">
-        <h1>events</h1>
-        <EventList />
-</div>
-<div>
-  <h2>annonncement</h2>
-  <div className='bg-blue-400 w-[300px] h-[100px]'>
-    <h3 className='text-xl font-medium'> test math</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-  </div>
-</div>
-      </section> */}
+      <h2 className='font-bold'>Messages  </h2>
+      <p className='text-primary text-sm font-semibold hover:cursor-pointer '>View All</p>
+      
+      </div>
+      <Card className='flex flex-col gap-2 p-4 overflow-auto max-h-[300px]'>
+      <MessagesCard  name= "zakaria zinedine" message="keep going incha2 lah you will make it, say bismi lah , la hamdo li lah " time ="01/05/2025 3:55" />
+      <MessagesCard  name= "zakaria zinedine" message="keep going incha2 lah you will make it, say bismi lah , la hamdo li lah " time ="01/05/2025 3:55" />
+      <MessagesCard  name= "zakaria zinedine" message="keep going incha2 lah you will make it, say bismi lah , la hamdo li lah " time ="01/05/2025 3:55" />
+      <MessagesCard  name= "zakaria zinedine" message="keep going incha2 lah you will make it, say bismi lah , la hamdo li lah " time ="01/05/2025 3:55" />
+      <MessagesCard  name= "zakaria zinedine" message="keep going incha2 lah you will make it, say bismi lah , la hamdo li lah " time ="01/05/2025 3:55" />
+      <MessagesCard  name= "zakaria zinedine" message="keep going incha2 lah you will make it, say bismi lah , la hamdo li lah " time ="01/05/2025 3:55" />
+      </Card>
+
+    </div>
+
     </section>
+    
+    <section className='w-full mt-4 flex md:flex-col justify-center items-center mr-auto ml-auto'>
+  <div>
+
+        <TitleElement title = "" linkHref="/"/>
+      <CalendarPage/> 
+      </div>
+
+    <div>
+
+      <TitleElement title = "" linkHref="/"/>
+      
+        <EventsCard title="test" date="01/05/2025" description="solveErrorDev
+file:///C:/Users/zakaria/Desktop/my%20projetc/expressnext/ui/.
+// next/static/chunks/node_modules_next_dis
+// t_compiled_107ce8._
+// .js (3662:65)" />
+    </div>
+
+    </section>
+
+
+</div>
 
   )
 }
 
 export default TeacherHome
 
-
-const events = [
-  { title: "Event 1", date: "January 1, 2022", description: "Some description goes here..." },
-  { title: "Event 2", date: "February 1, 2022", description: "Some description goes here..." },
-  { title: "Event 3", date: "March 1, 2022", description: "Some description goes here..." },
-  { title: "Event 4", date: "April 1, 2022", description: "Some description goes here..." }
-];
-
-const EventList = () => {
-  return (
-      <div className="border-l-2 border-gray-500 pl-8">
-          {events.map((event, index) => (
-              <div className={`flex flex-col md:flex-row md:justify-between mt-8`} key={index}>
-                  <div className="mb-4 md:mb-0">
-                      <h3 className="text-xl font-bold mb-2">{event.title}</h3>
-                      <p className="text-gray-600 text-sm">Date: {event.date}</p>
-                  </div>
-                  <p className="text-gray-700">{event.description}</p>
-              </div>
-          ))}
-      </div>
-  );
-};
 
 

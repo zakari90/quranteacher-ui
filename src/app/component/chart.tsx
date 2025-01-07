@@ -1,6 +1,6 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
+import { MoreHorizontal, MoreVertical, Plus, TrendingUp } from "lucide-react"
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 
 import {
@@ -20,48 +20,35 @@ import {
 import { LabelList, Pie, PieChart } from "recharts"
 
 import { Bar, BarChart } from "recharts"
+import Image from "next/image"
+import Link from "next/link"
 
 
 const chartData1 = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 90, fill: "var(--color-other)" },
+  { browser: "male", visitors: 200, fill: "#2563EB" },
+  { browser: "Female", visitors: 300, fill: "#FECACA" },
 ]
 
 const chartConfig1 = {
   visitors: {
-    label: "Visitors",
+    label: "student",
   },
   chrome: {
-    label: "Chrome",
-    color: "hsl(var(--chart-1))",
+    label: "Male",
+    color: "#2563EB",
   },
   safari: {
-    label: "Safari",
-    color: "hsl(var(--chart-2))",
+    label: "Female",
+    color: "#FECACA",
   },
-  firefox: {
-    label: "Firefox",
-    color: "hsl(var(--chart-3))",
-  },
-  edge: {
-    label: "Edge",
-    color: "hsl(var(--chart-4))",
-  },
-  other: {
-    label: "Other",
-    color: "hsl(var(--chart-5))",
-  },
+ 
 } satisfies ChartConfig
 
 export function ChartComponent() {
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col w-72 h-96 mt-4">
       <CardHeader className="items-center pb-0">
-        <CardTitle>Pie Chart - Label List</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>Students statistics</CardTitle>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
@@ -87,12 +74,12 @@ export function ChartComponent() {
         </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+      <div className="flex items-center gap-2 font-medium leading-none">
+        <span className="w-4 h-4 bg-blue-600"/>  Male
+        <span className="w-4 h-4 bg-red-200"/>   Female
+
         </div>
-        <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
-        </div>
+
       </CardFooter>
     </Card>
   )
@@ -120,7 +107,7 @@ const chartConfig2 = {
 
 export function BarChartComponent() {
   return (
-    <Card>
+    <Card className="w-72 h-96 mt-4">
       <CardHeader>
         <CardTitle>Bar Chart - Multiple</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
@@ -237,3 +224,138 @@ export function LineChartComponent() {
   )
 }
 
+type TopStdProps = {
+  name: string
+  hizb: number
+  rank: number
+  gender: string
+}
+
+
+export function TopStudentCard({ name, hizb, rank, gender }: TopStdProps) {
+  const color = gender === "male" ? "bg-[#2563EB]" :  "bg-[#FECACA]"
+  return (
+    <>
+ <Card className={`${color} w-54 h-14 flex`}>
+  <CardHeader 
+    className='m-1 w-[45px] h-[45px] bg-white rounded-full flex justify-center items-center'>
+    {hizb}
+  </CardHeader>
+  <CardContent className="ml-4 mt-3 p-0 w-4/6" >{name}
+  </CardContent>
+  <CardFooter className="m-2 mt-3 p-0 w-[35px] h-[28px] rounded-full flex justify-center items-center bg-white">
+  {rank}
+</CardFooter>
+
+ </Card>
+
+    </>
+ 
+  )
+}
+
+type HeaderProps ={
+  title: string
+  linkHref: string
+}
+export function TitleElement({title , linkHref} : HeaderProps) {
+  return(
+    <div className='flex justify-between m-2 w-full'>
+
+    <h2 className='font-bold'>{title}  </h2>
+    <Link href={ linkHref || "/"} className='text-primary text-sm font-semibold hover:cursor-pointer '>
+    View All</Link>
+    
+    </div>
+  )
+}
+
+
+type MessagesProps={
+  sender? : string
+  name : string
+  message : string
+  time : string
+
+}
+
+export function MessagesCard({sender, name , message, time  }:MessagesProps){
+  return(
+    <Card className="flex hover:cursor-pointer " >
+    <CardHeader >
+     <div className="mt-auto mb-auto overflow-hidden w-[45px] h-[45px] rounded-full border-2 flex justify-center items-center">
+     <Image
+      width={40}
+      height={40}
+      src={sender || "file.svg"}
+      alt="sender profile picture"
+      />
+     </div>
+      
+    </CardHeader>
+    <CardContent className="ml-4 mt-3 p-0 w-4/6" >
+    <h2 className="font-semibold">  {name}   </h2>
+    <p className="text-black/35 max-w-md max-h-8 overflow-hidden" >{message}</p>
+
+    </CardContent>
+    <CardFooter className=" text-sm  text-center text-black/35">
+    {time}
+  </CardFooter>
+  
+   </Card>
+  )
+}
+
+
+
+
+interface EventsProps {
+  title: string
+  date: string
+  description : string
+}
+export function EventsCard ({title, date, description}:EventsProps) {
+  return (
+  <details className={`hover:cursor-pointer`}>
+      <summary className="border-l-2 flex justify-between ">
+          <h3 className="text-xl font-bold mb-2 flex gap-3"><Plus/> {title}</h3>
+          <p className="text-gray-600 text-sm">{date}</p>
+      </summary>
+      <p className="text-gray-700">{description}</p>
+  </details>
+  );
+};
+
+
+interface CustomCardProps {
+  currentDate: string
+  studentCount: number
+}
+
+export function CustomStudentCard({ currentDate, studentCount }: CustomCardProps) {
+  return (
+    <Card className="w-[200px] h-[100px] bg-primary/35 p-2">
+      <CardContent className="p-0 flex justify-between h-full">
+        <div className="w-3/4 flex flex-col justify-between">
+          <div>
+            <span className="bg-white text-xs p-1 border-2 border-solid rounded-xl">
+              {currentDate}
+            </span>
+          </div>
+          <div>
+            <p className="font-bold text-lg">{studentCount.toLocaleString()}</p>
+            <p className="text-white font-semibold text-sm">Students</p>
+          </div>
+        </div>
+        <div className="self-start">
+          <button
+            className="hover:bg-blue-500 p-1 rounded-full transition-colors"
+            aria-label="More options"
+          >
+            <MoreHorizontal className="text-white h-5 w-5" />
+          </button>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}

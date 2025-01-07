@@ -32,12 +32,6 @@ const menuItems = [
         href: "/list/events",
         visible: ["admin", "teacher", "student", "parent"],
       },
-      {
-        icon: <MessageCircle />,
-        label: "Messages",
-        href: "/list/messages",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
     
 
 ];
@@ -48,7 +42,7 @@ function Menu( {role}: {role: string}) {
 
     <div className=' h-screen sticky flex flex-col justify-between  w-20  md:w-[200px] p-2'>
 
-          <h2 className='w-1/5 text-lg font-bold text-primary'>HAFD</h2>  
+          <h2 className='w-1/5 text-lg font-bold text-primary'>HAFiD</h2>  
           <ul className="w-3/5 flex flex-col justify-around">
             {
               menuItems.map((item) => {
@@ -66,7 +60,25 @@ function Menu( {role}: {role: string}) {
                 }
               })  
             }
+            <li className='mb-2 mt-2 '>
+              <Link className='flex items-center gap-2 hover:cursor-pointer' href="/list/messages">
+                
+              <div className=" relative">
+                <MessageCircle />
+              <div className='absolute bottom-4 left-3'>
+              <span className="px-1.5 py-0.5  rounded-full text-xs  bg-primary text-white">
+                  1
+              </span>
+
+              </div>
+
+              </div>
+              <span className="hidden md:block">Messages</span>
+                
+              </Link>
+            </li>
           </ul>
+
           <div className='w-1/5 flex justify-center items-center mt-2'>
             <Link href='/profile'>
               <button className='bg-primary text-white p-2 rounded-xl'>

@@ -19,7 +19,7 @@ const BigCalendar: React.FC = () => {
   const goToNextMonth = () => setCurrentMonth(addMonths(currentMonth, 1))
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-[500px] h-[400px] mx-auto p-4">
       <div className="flex justify-between items-center mb-4">
         <Button onClick={goToPreviousMonth} variant="outline" size="icon">
           <ChevronLeft className="h-4 w-4" />
