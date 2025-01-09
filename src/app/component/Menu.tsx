@@ -1,37 +1,37 @@
-import { Calendar, GraduationCap, Home, MessageCircle, PencilRuler, Users, UserSquare } from "lucide-react";
+import { GraduationCap, Home, MessageCircle, Users, UserSquare } from "lucide-react";
 import Link from 'next/link';
 
 const menuItems = [
       {
         icon: <Home />,
         label: "Home",
-        href: "/",
+        href: "/admin",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: <PencilRuler />,
+        icon: <Users />,
         label: "Teachers",
-        href: "/list/teachers",
+        href: "/teacher",
         visible: ["admin", "teacher"],
       },
       {
         icon: <GraduationCap />,
         label: "Students",
-        href: "/list/students",
+        href: "/student",
         visible: ["admin", "teacher"],
       },
-      {
-        icon: <Users />,
-        label: "Parents",
-        href: "/list/parents",
-        visible: ["admin", "teacher"],
-      },
-      {
-        icon: <Calendar />,
-        label: "Events",
-        href: "/list/events",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
+      // {
+      //   icon: <Users />,
+      //   label: "Parents",
+      //   href: "/parent",
+      //   visible: ["admin", "teacher"],
+      // },
+      // {
+      //   icon: <Calendar />,
+      //   label: "Events",
+      //   href: "/events",
+      //   visible: ["admin", "teacher", "student", "parent"],
+      // },
     
 
 ];

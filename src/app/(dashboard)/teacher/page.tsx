@@ -1,8 +1,13 @@
-import React from 'react'
+import { TeachersDataTable } from "@/app/component/teachersDataTable"
 
 function TeacherHome() {
+    // register teacher
+    //update teacher data (later)
+    //view all teacher
   return (
-    <div>TeacherHome</div>
+    <div>
+      <TeachersDataTable/>
+      </div>
   )
 }
 

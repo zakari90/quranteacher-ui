@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 function TeacherHome() {
   return (
-    <div className='flex flex-wrap'>
+    <div className='flex flex-wrap container'>
     <section className='max-w-4xl'>
     <div className='w-full mb-4'>
       <div className=' flex  flex-wrap justify-around'>
@@ -50,7 +50,7 @@ function TeacherHome() {
 
     </section>
     
-    <section className='w-full mt-4 flex md:flex-col justify-center items-center mr-auto ml-auto'>
+    <section className='w-full md:w-[500px] mt-4 flex-col justify-center items-center mr-auto ml-auto'>
   <div>
 
         <TitleElement title = "" linkHref="/"/>

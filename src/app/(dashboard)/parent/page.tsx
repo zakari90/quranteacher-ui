@@ -2,7 +2,12 @@ import React from 'react'
 
 function TeacherHome() {
   return (
-    <div>TeacherHome</div>
+
+
+    <div>
+      TeacherHome
+      
+    </div>
   )
 }
 

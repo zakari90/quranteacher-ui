@@ -1,27 +1,27 @@
 "use client"
 
-import { MoreHorizontal, MoreVertical, Plus, TrendingUp } from "lucide-react"
+import { MoreHorizontal, Plus, TrendingUp } from "lucide-react"
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
 } from "@/components/ui/card"
 import {
-    ChartConfig,
-    ChartContainer,
-    ChartTooltip,
-    ChartTooltipContent,
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
 } from "@/components/ui/chart"
 import { LabelList, Pie, PieChart } from "recharts"
 
-import { Bar, BarChart } from "recharts"
 import Image from "next/image"
 import Link from "next/link"
+import { Bar, BarChart } from "recharts"
 
 
 const chartData1 = [
@@ -264,7 +264,8 @@ export function TitleElement({title , linkHref} : HeaderProps) {
 
     <h2 className='font-bold'>{title}  </h2>
     <Link href={ linkHref || "/"} className='text-primary text-sm font-semibold hover:cursor-pointer '>
-    View All</Link>
+    View All
+    </Link>
     
     </div>
   )
