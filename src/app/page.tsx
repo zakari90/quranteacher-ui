@@ -1,3 +1,4 @@
+import { Card } from "@/components/ui/card";
 import { AboutSection, HeroSection, NavItem, ProjectCard, ServiceCard } from "./component/arch/components";
 
 const projects = [
@@ -85,20 +86,30 @@ export default function Home() {
 
       <div id="hero">
         <HeroSection
-          title="Future Architectural Engineering Company"
-          subtitle="One of the leading companies in the field of designing and building high-end architectural projects in the area."
+          title="HAFID"
+          subtitle="A platform to memorize the Quran with expert tutor guidance."
           backgroundImage="https://www.svgrepo.com/show/492818/online-interview-male.svg"
           socialIcons={socialIcons}
         />
       </div>
 
+      <div id="project" className="container self-center mt-4 w-full max-w-[1269px] mb-8 max-md:mt-10 max-md:max-w-full">
+        <h2 className="text-right font-bold text-black text-2xl md:mb-8">Our Projects</h2>
+        <Card className="grid grid-cols-2 md:gap-y-12 gap-6 md:grid-cols-3 md:gap-12">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </Card>
+      </div>
       <div id="services" className="bg-teal-900 bg-opacity-10 w-full text-black">
         <h2 className="text-center font-bold text-black text-2xl mb-4">Our Services</h2>
+        
         <div className="w-full flex flex-col sm:flex-row justify-between">
           {services.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
         </div>
+
       </div>
 
       <div id="about">
@@ -109,14 +120,7 @@ export default function Home() {
         />
       </div>
 
-      <div id="project" className="container self-center mt-4 w-full max-w-[1269px] mb-8 max-md:mt-10 max-md:max-w-full">
-        <h2 className="text-right font-bold text-black text-2xl md:mb-8">Our Projects</h2>
-        <div className="grid grid-cols-2 md:gap-y-12 gap-6 md:grid-cols-3 md:gap-12">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
-        </div>
-      </div>
+
 
       <div>
         {/* <FooterSection /> */}

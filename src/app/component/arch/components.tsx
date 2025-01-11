@@ -1,4 +1,5 @@
 "use client"
+import Image from 'next/image';
 import React from 'react';
 import { useState } from 'react';
 // import EmailjsComponent from './emailjsComponent';
@@ -80,6 +81,27 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ imageUrl, title }) => 
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, description }) => {
   return (
+    <>
+    <div className="flex h-screen items-center justify-center px-10">
+  <div className="w-full sm:w-1/2  bg-white shadow-xl rounded-3xl">
+    <div className="mt-10 flex justify-center mb-5 ">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKN2MjSr0slVb3jxwjrIuBaAaqo669IBIKxw&usqp=CAU" className="rounded-full" alt="" />
+    </div>
+    <div className="flex justify-center px-5 ">
+      <div className="border-b-2 border-gray-500 w-full"></div>
+    </div>
+    <div className="flex justify-center text-center p-5">
+      <p>
+        zakaria zinedine
+
+        </p>
+    </div>
+    <div className="flex justify-center gap-4 p-5">
+      <button className="py-3 bg-indigo-500 font-semibold text-white w-1/4 rounded-xl hover:bg-indigo-600">Follow</button>
+      <button className="py-3 bg-pink-500 font-semibold text-white w-1/4 rounded-xl hover:bg-pink-600">Subscribe</button>
+    </div>
+  </div>
+</div>
     <div className="container flex flex-col grow text-base text-center text-black max-md:mt-10">
     <img
       loading="lazy"
@@ -89,6 +111,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, description 
     />
     <div className="self-center md:w-60 mt-2 rounded-lg">{description}</div>
     </div>
+    </>
+
   );
   };
 
@@ -141,30 +165,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   socialIcons
   }) => {
   return (
-<div className="flex relative h-[500px] w-full">
-  <div className="h-[500px] w-full flex">
-  <div className="sm:w-2/12 h-full ">
-  <div className="z-10 flex flex-col items-center justify-center text-black bg-white bg-opacity-50 w-[400px] h-[300px] absolute top-[50px]">
-  <h2 className="text-3xl font-bold">{title}</h2>
-  <p className="mt-4 mr-4 text-xl">{subtitle}</p>
+    <>
+    <div className='w-full h-screen flex items-center'>
+    <div className='w-1/2 h-52 '>
+      <h2 className="ml-8 text-primary text-3xl font-bold uppercase">{title}</h2>
+      <p className="mt-4 ml-4 text-xl">{subtitle}</p>
 </div>
-  </div>
-  <div className="relative z-0 w-full sm:w-10/12 h-full bg-black bg-opacity-50">
-  <img
+      <div className='w-1/2 h-96 '>
+      <Image
       loading="lazy"
+      width={300}
+      height={250}
+      layout='responsive'
       src={backgroundImage}
       alt="Architecture hero"
-      className="object-cover left-0 absolute inset-0 size-full"
+      className="object-cover size-full"
     />
-  </div>
-  </div>
-    
-    {/* <div className="flex gap-10 self-end mt-96 max-md:mt-10">
-      {socialIcons.map((icon, index) => (
-        <SocialIcon key={index} {...icon} />
-      ))}
-      </div>       */}
       </div>
+
+    </div>
+    </>
+
   );
   };
   export const AboutSection: React.FC<AboutSectionProps> = ({
