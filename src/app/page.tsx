@@ -1,36 +1,27 @@
 import { Card } from "@/components/ui/card";
-import { AboutSection, HeroSection, NavItem, ProjectCard, ServiceCard } from "./component/arch/components";
-
-const projects = [
+import { AboutSection, HeroSection, NavItem, ServiceCard, TeacherCard } from "./component/arch/components";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { Hand, HandshakeIcon, Phone, SignalHigh } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+const tutors = [
   {
-    imageUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/f763468310c73af447dd6c1e1efff7fb2c8c29ef0b0337a27f7308294ff5d27b?placeholderIfAbsent=true&apiKey=85e478c7f39c4ba2b25ad406dcbb7313",
-    description: "One of the high-end architectural projects in the area.",
-    alt: "Architectural project 1"
+    imageUrl: "https://www.svgrepo.com/show/227594/muslim-islam.svg",
+    name: "John Doe",
+    bio: "Expert in Quran memorization with over 10 years of experience.",
+    alt: "Tutor John Doe"
   },
   {
-    imageUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/fef4d58a75f2a2f0dfa719a4eae5a0b347fede2efd4eb2c2e07db44414b1532e?placeholderIfAbsent=true&apiKey=85e478c7f39c4ba2b25ad406dcbb7313",
-    description: "One of the high-end architectural projects in the area.",
-    alt: "Architectural project 2"
+    imageUrl: "https://www.svgrepo.com/show/420361/avatar-man-muslim.svg",
+    name: "Jane Smith",
+    bio: "Certified tutor with a passion for teaching Quran to all age groups.",
+    alt: "Tutor Jane Smith"
   },
   {
-    imageUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/42bab78892b92f0fd1e5dc59f6a06c57242b219b0a117d0fdd85e6d58f1e7e52?placeholderIfAbsent=true&apiKey=85e478c7f39c4ba2b25ad406dcbb7313",
-    description: "One of the high-end architectural projects in the area.",
-    alt: "Architectural project 3"
-  },
-  {
-    imageUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/73a640269b8edee7b951e13007d6e26acc408ee1c10f3222f6567004d8031ce6?placeholderIfAbsent=true&apiKey=85e478c7f39c4ba2b25ad406dcbb7313",
-    description: "One of the high-end architectural projects in the area.",
-    alt: "Architectural project 4"
-  },
-  {
-    imageUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/570e4cfebd5ab58f1c7736e0ab555bdd5c52df52572f3e0292afc2c17d1ab22f?placeholderIfAbsent=true&apiKey=85e478c7f39c4ba2b25ad406dcbb7313",
-    description: "One of the high-end architectural projects in the area.",
-    alt: "Architectural project 5"
-  },
-  {
-    imageUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/f763468310c73af447dd6c1e1efff7fb2c8c29ef0b0337a27f7308294ff5d27b?placeholderIfAbsent=true&apiKey=85e478c7f39c4ba2b25ad406dcbb7313",
-    description: "One of the high-end architectural projects in the area.",
-    alt: "Architectural project 6"
+    imageUrl: "https://www.svgrepo.com/show/16574/waiter.svg",
+    name: "Ahmed Khan",
+    bio: "Experienced tutor specializing in Quran recitation and memorization.",
+    alt: "Tutor Ahmed Khan"
   }
 ];
 
@@ -72,19 +63,25 @@ const socialIcons = [
 
 export default function Home() {
   return (
-    <div>
-      <div className="container flex mb-4 justify-between w-full max-w-[1265px] text-black">
-        <div className="flex h-full w-1/2 md:w-1/3 justify-between mt-auto mb-auto">
-          {/* Navigation Items */}
-          <NavItem href="#hero" label="Home" isActive />
-          <NavItem href="#about" label="About" />
-          <NavItem href="#services" label="Our Services" />
-          <NavItem href="#project" label="Our Projects" />
+    <div >
+      <div className="bg-primary/10">
+        <div className="container flex justify-between w-full max-w-[1265px] text-black ">
+        <div className="text-2xl md:text-3xl font-bold text-primary">HAFID</div>
+
+          <div className="flex h-full w-1/2 md:w-1/3 justify-between mt-auto mb-auto">
+            <NavItem href="#hero" label="Home" isActive />
+            <NavItem href="#about" label="About" />
+            <NavItem href="#services" label="Our Services" />
+            <NavItem href="#teachers" label="Our teachers" />
+          </div>
+          <div >
+            <Button variant="outline" >Login</Button>
+            <Button>Sign up</Button>
+          </div>
         </div>
-        <div className="text-2xl md:text-3xl font-bold">Your Company</div>
       </div>
 
-      <div id="hero">
+      <div className="bg-primary/10 rounded-b-[200px]" id="hero">
         <HeroSection
           title="HAFID"
           subtitle="A platform to memorize the Quran with expert tutor guidance."
@@ -92,16 +89,69 @@ export default function Home() {
           socialIcons={socialIcons}
         />
       </div>
+      <section className="w-full h-96 flex">
+        <div className=" w-1/3 mt-auto mb-auto ">
+        <div className="border-2 rounded-xl relative w-fit h-fit ">
+          <div>
+            <ProfileCard name="zakaria zinedine" imageUrl="https://www.svgrepo.com/show/492818/online-interview-male.svg"/>
+          </div>
+      </div>
+      </div>  
+        <div className="w-2/3 h-full flex relative">
+        <div className="w-1/6 flex justify-center items-center ">
+        <span className="w-10 h-10 border-4 rounded-full border-white flex justify-center items-center">
+          <span className="w-8 h-8 border-2 border-gray-400 rounded-full flex justify-center items-center p-1">
+            <Hand className="w-full h-full text-red-700" />
+          </span>
+        </span>
 
-      <div id="project" className="container self-center mt-4 w-full max-w-[1269px] mb-8 max-md:mt-10 max-md:max-w-full">
-        <h2 className="text-right font-bold text-black text-2xl md:mb-8">Our Projects</h2>
-        <Card className="grid grid-cols-2 md:gap-y-12 gap-6 md:grid-cols-3 md:gap-12">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+        </div>
+        <div className="w-2/6 h-full flex flex-col justify-center">
+
+        <div className="w-full h-28 ">
+        <div className="border-2 rounded-xl relative w-32 h-fitb ">
+          <ProfileCard name="zakaria zinedine" imageUrl="https://www.svgrepo.com/show/492818/online-interview-male.svg"/>
+        </div> 
+
+        </div>
+        <div className="w-full h-28 ">
+        <div className="border-2 rounded-xl relative w-32 h-fitb ">
+          <ProfileCard name="zakaria zinedine" imageUrl="https://www.svgrepo.com/show/492818/online-interview-male.svg"/>
+        </div> 
+        </div>
+
+        </div>
+        <div className="w-3/6 h-full flex flex-col justify-center items-center">
+
+        <div className="w-full h-40 "><div className="border-2 rounded-xl relative w-32 h-fitb ">
+        <ProfileCard name="zakaria zinedine" imageUrl="https://www.svgrepo.com/show/492818/online-interview-male.svg"/>
+
+          </div> 
+          </div>
+        <div className="w-full h-40 "><div className="border-2 rounded-xl relative w-32 h-fitb ">
+          <ProfileCard name="zakaria zinedine" imageUrl="https://www.svgrepo.com/show/492818/online-interview-male.svg"/>
+           
+          </div> 
+          </div>
+
+      </div>
+        </div>
+
+      </section>
+
+      <div id="teachers" className=" self-center mt-4 w-full
+       mb-8 max-md:mt-10 max-md:max-w-full">
+        <Card className="gap-2 p-4">
+        <h2 className="text-center font-bold text-black text-2xl">Our Teachers</h2>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+
+          {tutors.map((tutor, index) => (
+            <TeacherCard key={index} {...tutor} />
           ))}
+          </div>
         </Card>
       </div>
-      <div id="services" className="bg-teal-900 bg-opacity-10 w-full text-black">
+      {/* <div id="services" className="bg-teal-900 bg-opacity-10 w-full text-black">
         <h2 className="text-center font-bold text-black text-2xl mb-4">Our Services</h2>
         
         <div className="w-full flex flex-col sm:flex-row justify-between">
@@ -110,21 +160,38 @@ export default function Home() {
           ))}
         </div>
 
-      </div>
+      </div> */}
 
       <div id="about">
         <AboutSection
           title="About Us"
           description="We specialize in providing architectural design services for residential, commercial, industrial projects, and major projects such as skyscrapers and shopping centers."
-          imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/a6f642b7a6f96a451da8ad67911065d6642dc20d377ab673539ec6d7369683a7?placeholderIfAbsent=true&apiKey=85e478c7f39c4ba2b25ad406dcbb7313"
+          imageUrl="https://www.svgrepo.com/show/48770/quran-rehal.svg"
         />
       </div>
-
-
-
       <div>
         {/* <FooterSection /> */}
       </div>
     </div>
   );
 }
+
+export function ProfileCard  ({ imageUrl, name }: { imageUrl: string; name: string }) {
+  return (
+    <div className="border-2 rounded-xl relative w-fit h-fit">
+      <Image
+        alt={name}
+        width={200}
+        height={200}
+        src={imageUrl}
+      />
+      <div className="absolute bottom-1 w-[90%] backdrop-blur-sm rounded-sm flex align-middle item gap-2">
+        <SignalHigh />
+        <p>{name}</p>
+        <Badge className="w-2 h-2 p-0 absolute top-0 right-0"></Badge>
+      </div>
+    </div>
+  );
+};
+
+

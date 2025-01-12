@@ -1,4 +1,5 @@
 "use client"
+import { Card } from '@/components/ui/card';
 import Image from 'next/image';
 import React from 'react';
 import { useState } from 'react';
@@ -93,8 +94,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, description 
     <div className="flex justify-center text-center p-5">
       <p>
         zakaria zinedine
-
-        </p>
+      </p>
     </div>
     <div className="flex justify-center gap-4 p-5">
       <button className="py-3 bg-indigo-500 font-semibold text-white w-1/4 rounded-xl hover:bg-indigo-600">Follow</button>
@@ -166,20 +166,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   }) => {
   return (
     <>
-    <div className='w-full h-screen flex items-center'>
+    <div className='w-full h-1/2 flex items-center'>
     <div className='w-1/2 h-52 '>
       <h2 className="ml-8 text-primary text-3xl font-bold uppercase">{title}</h2>
       <p className="mt-4 ml-4 text-xl">{subtitle}</p>
-</div>
-      <div className='w-1/2 h-96 '>
+    </div>
+      <div className='w-1/2 h-96 relative'>
       <Image
       loading="lazy"
       width={300}
-      height={250}
-      layout='responsive'
+      height={300}
+      // fill
+      // layout='responsive'
       src={backgroundImage}
       alt="Architecture hero"
-      className="object-cover size-full"
+      className="size-full"
     />
       </div>
 
@@ -199,19 +200,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     setIsExpanded((prev) => !prev);
   };
   return (
-    <div className="container md:flex w-full">
-    <div className="w-full md:w-[60%] h-full">
-      <img
+    <div className=" w-full flex">
+    <div className=" relative">
+      <Image
+      width={300}
+      height={300}
       loading="lazy"
       src={imageUrl}
       alt="About us"
-      className="object-contain grow w-full rounded-3xl aspect-[1.29] max-md:mt-10 max-md:max-w-full"
+      className="object-contain"
       />
     </div>
-    <div className="w-full md:w-[40%] md:mr-8 flex flex-col md:items-center justify-center md:p-4"> 
-    <h2 className="text-center font-bold text-2xl mb-4">{title}</h2>
-      <div className={`transition-all duration-500 ${isExpanded  ? 'h-auto' : 'h-20 overflow-hidden'}`}>
-      <p className="text-lg text-black w-[80%] text-center">
+    <div className="flex flex-col justify-center items-center w-[60%] p-8"> 
+    <h2 className="text-center font-bold text-2xl mb-4 ">{title}</h2>
+      <div className={`transition-all duration-500  ${isExpanded  ? '' : 'overflow-hidden'}`}>
+      <p className="text-lg">
         {description}
       </p>
       </div>
@@ -228,12 +231,44 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
 
+  export interface TeacherCardProps {
+    imageUrl: string;
+    bio: string;
+    name: string;
+    alt?: string;
+  }
 
+  export const TeacherCard: React.FC<TeacherCardProps> = ({ imageUrl, bio, name, alt }) => {
+    const handleMessage = () => {
+      console.log(`Message sent to ${name}`);
+    };
+
+    return (
+      <Card className="flex flex-col items-center text-center w-52">
+        <Image
+          loading="lazy"
+          width={200}
+          height={200}
+          src={imageUrl}
+          alt={alt ||""}
+          className="object-contain w-32 h-32 rounded-full"
+        />
+        <h3 className="mt-4 text-xl font-bold">{name}</h3>
+        <p className="mt-2 text-gray-600">{bio}</p>
+        <div className="mt-4">
+          <button onClick={handleMessage} className="px-4 py-2 bg-green-500 text-white rounded-lg">
+            Message
+          </button>
+        </div>
+      </Card>
+    );
+  };
   
   export interface ProjectCardProps {
   imageUrl: string;
   description: string;
   alt?: string;
+
   }
   
   export interface ServiceCardProps {
