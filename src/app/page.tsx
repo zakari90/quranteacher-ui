@@ -1,9 +1,9 @@
-import { Card } from "@/components/ui/card";
-import { AboutSection, HeroSection, NavItem, ServiceCard, TeacherCard } from "./component/arch/components";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { Hand, HandshakeIcon, Phone, SignalHigh } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Hand, SignalHigh } from "lucide-react";
+import Image from "next/image";
+import { AboutSection, HeroSection, NavItem, TeacherCard } from "./component/arch/components";
 const tutors = [
   {
     imageUrl: "https://www.svgrepo.com/show/227594/muslim-islam.svg",
@@ -25,23 +25,6 @@ const tutors = [
   }
 ];
 
-const services = [
-  {
-    imageUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/ccebadc150ddab4b502e170a6f421bcc2fb28ead3d4adeaa62f68f080e469651?placeholderIfAbsent=true&apiKey=85e478c7f39c4ba2b25ad406dcbb7313",
-    title: "Urban Planning",
-    alt: "Urban Planning Icon"
-  },
-  {
-    imageUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/6ddf3ff9d6e5dbf41dafe7594640ce2fc9fad97543a0e2aa050d0bef7a7f72b1?placeholderIfAbsent=true&apiKey=85e478c7f39c4ba2b25ad406dcbb7313",
-    title: "Interior Design",
-    alt: "Interior Design Icon"
-  },
-  {
-    imageUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/a7debd6437ceb6c48d515f11b4bc0e94953f55336116495c55a9cb41e68c61ec?placeholderIfAbsent=true&apiKey=85e478c7f39c4ba2b25ad406dcbb7313",
-    title: "Exterior Design",
-    alt: "Exterior Design Icon"
-  }
-];
 
 const socialIcons = [
   {
@@ -89,56 +72,82 @@ export default function Home() {
           socialIcons={socialIcons}
         />
       </div>
-      <section className="w-full h-96 flex">
+      <section className="flex flex-col gap-2 md:flex-row">
+      <div className="w-[550px]" >
+      <div className="w-full h-6 bg-gray-400 rounded-t-sm" >
+      <Badge className="p-0 w-3 h-3 ml-1 bg-red-400"/>
+      <Badge className="p-0 w-3 h-3 ml-1 mr-1 bg-yellow-500 "/>
+      <Badge className="p-0 w-3 h-3 bg-green-500"/>
+      </div>
+      <div className="border-2 border-gray-200 ">
+      <div className="ml-20 w-full h-96 flex">
         <div className=" w-1/3 mt-auto mb-auto ">
-        <div className="border-2 rounded-xl relative w-fit h-fit ">
-          <div>
-            <ProfileCard name="zakaria zinedine" imageUrl="https://www.svgrepo.com/show/492818/online-interview-male.svg"/>
-          </div>
-      </div>
-      </div>  
+          <ProfileCard name="zakaria zinedine" imageUrl="https://www.svgrepo.com/show/492818/online-interview-male.svg"/>
+        </div>  
         <div className="w-2/3 h-full flex relative">
-        <div className="w-1/6 flex justify-center items-center ">
-        <span className="w-10 h-10 border-4 rounded-full border-white flex justify-center items-center">
-          <span className="w-8 h-8 border-2 border-gray-400 rounded-full flex justify-center items-center p-1">
+        <div className="absolute bottom-[165px] z-10">
+          <span className="relative flex w-8 ">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-10 w-8 bg-gray-200 p-1">
             <Hand className="w-full h-full text-red-700" />
+            </span>
           </span>
-        </span>
-
         </div>
-        <div className="w-2/6 h-full flex flex-col justify-center">
-
-        <div className="w-full h-28 ">
-        <div className="border-2 rounded-xl relative w-32 h-fitb ">
+        <div className="ml-3 w-2/6 h-full flex flex-col justify-center">
+        <div className="w-full h-60 space-y-4">
+        
           <ProfileCard name="zakaria zinedine" imageUrl="https://www.svgrepo.com/show/492818/online-interview-male.svg"/>
-        </div> 
-
-        </div>
-        <div className="w-full h-28 ">
-        <div className="border-2 rounded-xl relative w-32 h-fitb ">
           <ProfileCard name="zakaria zinedine" imageUrl="https://www.svgrepo.com/show/492818/online-interview-male.svg"/>
-        </div> 
+     
         </div>
 
         </div>
-        <div className="w-3/6 h-full flex flex-col justify-center items-center">
+        <div className="ml-6 w-3/6 h-full flex flex-col justify-center items-center">
 
-        <div className="w-full h-40 "><div className="border-2 rounded-xl relative w-32 h-fitb ">
+        <div className="w-full space-y-4 ">
         <ProfileCard name="zakaria zinedine" imageUrl="https://www.svgrepo.com/show/492818/online-interview-male.svg"/>
-
-          </div> 
-          </div>
-        <div className="w-full h-40 "><div className="border-2 rounded-xl relative w-32 h-fitb ">
-          <ProfileCard name="zakaria zinedine" imageUrl="https://www.svgrepo.com/show/492818/online-interview-male.svg"/>
-           
-          </div> 
-          </div>
+        <ProfileCard name="zakaria zinedine" imageUrl="https://www.svgrepo.com/show/492818/online-interview-male.svg"/>
+            
+        </div>
+        </div>
+        </div>
+      </div>
 
       </div>
-        </div>
+      </div>
+        <div className="w-full bg-primary/10 rounded-l-[200px]">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-4xl font-bold text-primary mb-8">Our Features</h2>
+            <p className="text-lg text-gray-600 mb-12">
+              Explore the powerful features that enhance your Quran learning experience.
+            </p>
 
+            <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16">
+              <div className="w-full md:w-1/3 p-6 bg-white shadow-md rounded-lg text-center">
+                <h3 className="text-2xl font-semibold text-primary/65 mb-4">Video Call</h3>
+                <p className="text-gray-600">
+                  Connect one-on-one with tutors for personalized Quran lessons.
+                </p>
+              </div>
+              <div className="w-full md:w-1/3 p-6 bg-white shadow-md rounded-lg text-center">
+                <h3 className="text-2xl font-semibold text-primary/65 mb-4">Group Video Call</h3>
+                <p className="text-gray-600">
+                  Join group sessions to study and recite the Quran together.
+                </p>
+              </div>
+                <div className="w-full md:w-1/3 p-6 bg-white shadow-md rounded-lg text-center">
+                  <h3 className="text-2xl font-semibold text-primary/65 mb-4">Messaging</h3>
+                  <p className="text-gray-600">
+                    Instantly message your tutors and peers for support and discussions.
+                  </p>
+                </div>
+              </div>
+          </div>
+        </div>
       </section>
 
+
+      {/*  */}
       <div id="teachers" className=" self-center mt-4 w-full
        mb-8 max-md:mt-10 max-md:max-w-full">
         <Card className="gap-2 p-4">
