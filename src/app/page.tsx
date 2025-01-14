@@ -138,7 +138,7 @@ export default function Home() {
                 <div className="w-full md:w-1/3 p-6 bg-white shadow-md rounded-lg text-center">
                   <h3 className="text-2xl font-semibold text-primary/65 mb-4">Messaging</h3>
                   <p className="text-gray-600">
-                    Instantly message your tutors and peers for support and discussions.
+                    Instantly message your teachers and peers for support and discussions.
                   </p>
                 </div>
               </div>
