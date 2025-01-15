@@ -2,16 +2,69 @@
 import { Card } from '@/components/ui/card';
 import Image from 'next/image';
 import React from 'react';
-import { useState } from 'react';
-// import EmailjsComponent from './emailjsComponent';
+import { useState } from 'react'
+import Link from 'next/link'
+import { Menu, X } from 'lucide-react'
+import { Button } from '@/components/ui/button';
+
+export function Navbar(){
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
+  }
+
+  return (
+    <nav className="w-full flex justify-around shadow-lg h-11">
+        <div className="flex justify-between">
+          <div className="flex space-x-7">
+            <div>
+              <Link href="#hero" className="flex items-center py-4 px-2">
+                <span className="hidden md:block font-semibold text-gray-500 text-lg">Logo</span>
+              </Link>
+            </div>
+            <div className="hidden md:flex items-center space-x-1 ">
+              <Link href="#hero" className="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Home</Link>
+              <Link href="#features" className="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Features</Link>
+              <Link href="#teachers" className="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Teachers</Link>
+              <Link href="#about" className="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">About</Link>
+            </div>
+          </div>
+          <div className="md:hidden flex items-center">
+            <button className="outline-none mobile-menu-button absolute top-2 left-2" onClick={toggleMenu}>
+              {isOpen ? <X className="h-6 w-6 text-gray-500" /> : <Menu className="h-6 w-6 text-gray-500" />}
+            </button>
+          </div>
+        </div>
+
+      {isOpen && (
+        <div className="md:hidden ml-auto mr-auto text-center z-20">
+          <div className='bg-primary/10 backdrop-blur-sm '>
+
+          <Link href="#hero" className="block py-2 px-4 text-sm hover:bg-primary hover:text-white transition duration-300">Home</Link>
+          <Link href="#features" className="block py-2 px-4 text-sm hover:bg-primary hover:text-white transition duration-300">Features</Link>
+          <Link href="#teachers" className="block py-2 px-4 text-sm hover:bg-primary hover:text-white transition duration-300">Teachers</Link>
+          <Link href="#about" className="block py-2 px-4 text-sm hover:bg-primary hover:text-white transition duration-300">About</Link>
+          </div>
+
+        </div>
+      )}
+      <div className="flex space-x-2 items-center absolute top-1 right-2">
+        <Button variant="outline">Login</Button>
+        <Button>Sign up</Button>
+      </div>
+    </nav>
+  )
+}
+
 
 export const NavItem: React.FC<NavItemProps> = ({ label, isActive, href }) => (
-  <a 
+  <Link
     href={href}
-    className={` ${isActive ? 'font-bold' : ''} hover:text-zinc-600 transition-colors`}
+    className={` ${isActive ? 'font-bold block py-2 px-4 md:p-0' : ''} hover:text-zinc-600 transition-colors`}
   >
     {label}
-  </a>
+  </Link>
   );
   
   export const Navigation: React.FC = () => {
@@ -168,7 +221,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     <>
     <div className='w-full h-1/2 flex items-center'>
     <div className='w-1/2 h-52 '>
-      <h2 className="ml-8 text-primary text-3xl font-bold uppercase">{title}</h2>
+      <h1 className="ml-8 text-primary text-3xl font-bold uppercase">{title}</h1>
       <p className="mt-4 ml-4 text-xl">{subtitle}</p>
     </div>
       <div className='w-1/2 h-96 relative'>
@@ -189,42 +242,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   );
   };
+
   export const AboutSection: React.FC<AboutSectionProps> = ({
   title,
-  description,
-  imageUrl
+  description
   }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleToggle = () => {
-    setIsExpanded((prev) => !prev);
-  };
   return (
-    <div className=" w-full flex">
-    <div className=" relative">
-      <Image
-      width={300}
-      height={300}
-      loading="lazy"
-      src={imageUrl}
-      alt="About us"
-      className="object-contain"
-      />
-    </div>
-    <div className="flex flex-col justify-center items-center w-[60%] p-8"> 
-    <h2 className="text-center font-bold text-2xl mb-4 ">{title}</h2>
-      <div className={`transition-all duration-500  ${isExpanded  ? '' : 'overflow-hidden'}`}>
-      <p className="text-lg">
+    <div className="ml-auto mr-auto w-[600px]  "> 
+    <h2 className="text-center font-bold text-2xl text-primary p-4 ">{title}</h2>
+      <p className="text-center text-lg ">
         {description}
       </p>
-      </div>
-      <p  
-      className="hover:cursor-pointer font-bold ml-auto mt-2 text-black text-opacity-40 hover:text-opacity-100 transition-opacity"
-      onClick={handleToggle}  
-      >
-      {isExpanded ? 'Less' : 'Read more'}
-      </p>
-    </div>
 
     </div>
       );
@@ -244,20 +273,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     };
 
     return (
-      <Card className="flex flex-col items-center text-center w-52">
+      <Card className="flex flex-col items-center text-center w-52 p-2">
+        <div className='relative w-20 h-20 '>
+
         <Image
           loading="lazy"
           width={200}
           height={200}
           src={imageUrl}
           alt={alt ||""}
-          className="object-contain w-32 h-32 rounded-full"
+          className="object-contain rounded-full"
         />
+        </div>
+
         <h3 className="mt-4 text-xl font-bold">{name}</h3>
         <p className="mt-2 text-gray-600">{bio}</p>
         <div className="mt-4">
-          <button onClick={handleMessage} className="px-4 py-2 bg-green-500 text-white rounded-lg">
-            Message
+          <button onClick={handleMessage} className="px-4 py-2 bg-primary/10 text-white rounded-lg">
+            
           </button>
         </div>
       </Card>
